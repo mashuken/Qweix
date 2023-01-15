@@ -1,6 +1,7 @@
 {
   "dependencies": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,
@@ -124,6 +125,8 @@
       },
       "url": "https://packages.unity.com"
     },
+=======
+>>>>>>> Stashed changes
     "com.unity.collab-proxy": {
       "version": "1.17.7",
       "depth": 0,
@@ -141,6 +144,7 @@
       "url": "https://packages.unity.com"
     },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "com.unity.feature.2d": {
       "version": "1.0.0",
       "depth": 0,
@@ -155,6 +159,8 @@
         "com.unity.2d.tilemap.extras": "2.2.3"
       }
     },
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     "com.unity.ide.rider": {
@@ -183,8 +189,13 @@
       "url": "https://packages.unity.com"
     },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "com.unity.mathematics": {
       "version": "1.2.6",
+=======
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.0.2",
+>>>>>>> Stashed changes
 =======
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.0.2",
@@ -194,6 +205,7 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.0.2",
@@ -227,6 +239,8 @@
 >>>>>>> Stashed changes
       "url": "https://packages.unity.com"
     },
+=======
+>>>>>>> Stashed changes
     "com.unity.services.core": {
       "version": "1.6.0",
       "depth": 1,
@@ -290,6 +304,7 @@
       "url": "https://packages.unity.com"
     },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
     "com.unity.xr.legacyinputhelpers": {
       "version": "2.1.10",
@@ -301,6 +316,8 @@
       },
       "url": "https://packages.unity.com"
     },
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     "com.unity.modules.ai": {
       "version": "1.0.0",
