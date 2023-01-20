@@ -60,7 +60,7 @@ public class NetworkManagerUI : MonoBehaviour
         });
         disconnectButton.onClick.AddListener(() =>
         {
-            NetworkManager.Singleton.DisconnectClient(NetworkManager.Singleton.LocalClientId);
+            NetworkManager.Singleton.Shutdown();
             UpdateNetUI(UiState.SelectionBtns);
         });
         connectButton.onClick.AddListener(() =>
