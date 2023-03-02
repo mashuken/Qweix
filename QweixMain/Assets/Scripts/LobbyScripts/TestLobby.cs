@@ -21,7 +21,6 @@ public class TestLobby : MonoBehaviour
     private async void Start()
     {
         await UnityServices.InitializeAsync();
-        UnityServices.
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);

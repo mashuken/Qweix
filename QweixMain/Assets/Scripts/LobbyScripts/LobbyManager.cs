@@ -106,5 +106,5 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    public void setPlayerName
+    //public void setPlayerName
 }
