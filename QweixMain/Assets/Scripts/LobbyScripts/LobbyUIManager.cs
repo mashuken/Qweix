@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LobbyUIManager : MonoBehaviour
 {
@@ -33,8 +35,19 @@ public class LobbyUIManager : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerNumber()
+    public void UpdatePlayerNumber(TMP_Text playerNumber)
     {
-
+        if (int.Parse(playerNumber.text) == 2)
+        {
+            playerNumber.text = "4";
+        }
+        if (int.Parse(playerNumber.text) == 4)
+        {
+            playerNumber.text = "6";
+        }
+        if (int.Parse(playerNumber.text) == 6)
+        {
+            playerNumber.text = "2";
+        }
     }
 }

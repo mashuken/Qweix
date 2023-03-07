@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Services.Authentication;
@@ -5,6 +6,7 @@ using Unity.Services.Core;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -19,8 +21,10 @@ public class LobbyManager : MonoBehaviour
     private Lobby joinedLobby;
     private float heartbeatTimer;
     private float lobbyUpdateTimer;
-    private string playerName;
 
+    //Player Options
+    private string playerName;
+    private string playerDeck;
 
     private async void Start()
     {
@@ -34,9 +38,6 @@ public class LobbyManager : MonoBehaviour
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
-
-    //Updateing with co-routines
-    //https://gamedevbeginner.com/coroutines-in-unity-when-and-how-to-use-them/
     private void Update()
     {
         HandleLobbyHeartbeat();
@@ -44,7 +45,7 @@ public class LobbyManager : MonoBehaviour
     }
 
     //Sends a pulse to lobby server to keep the lobby open.
-    //Did not implement this two methods with a co-routine because async and co-routine do not play nice out of the box.
+    //Did not implement theses two methods with a co-routine because async and co-routine do not play nice out of the box.
     private async void HandleLobbyHeartbeat()
     {
         if (hostLobby != null)
@@ -77,20 +78,21 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    private async void CreateLobby()
+    private async void CreateLobby(Text lobbyNameText, Toggle lobbyPrivacyToggle, Text playerNumberButtonText)
     {
         try
         {
-            string lobbyName = "MyLobby";
-            int maxPlayers = 4;
+            string lobbyName = lobbyNameText.text;
+            int maxPlayers = int.Parse(playerNumberButtonText.text);
+            bool privateLobby = lobbyPrivacyToggle.isOn;
+
             CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
             {
-                IsPrivate = false,
-                //Player = GetPlayer(),
+                IsPrivate = privateLobby,
+                Player = GetPlayer(),
                 Data = new Dictionary<string, DataObject>
                 {
-                    { "GameMode", new DataObject(DataObject.VisibilityOptions.Public, "CaptureTheFlag")},
-                    { "Map" , new DataObject(DataObject.VisibilityOptions.Public, "de_dust2") }
+                    { "StartGame", new DataObject(DataObject.VisibilityOptions.Member, "0")},
                 }
             };
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, createLobbyOptions);
@@ -104,6 +106,18 @@ public class LobbyManager : MonoBehaviour
         {
             Debug.Log(e);
         }
+    }
+
+    private Player GetPlayer()
+    {
+        return new Player
+        {
+            Data = new Dictionary<string, PlayerDataObject>
+            {
+                { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) },
+                { "Deck" , new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerDeck)}
+            }
+        };
     }
 
     //public void setPlayerName
